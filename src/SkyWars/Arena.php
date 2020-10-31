@@ -587,10 +587,10 @@ class Arena {
                 if($player->getY() < 0){
                     $player->teleport($player->getServer()->getLevelByName($this->world)->getSpawnLocation());
                 }
-                
-                foreach ($this->getPlayers() as $pl) {
-                    $pl->hidePlayer($player);
-                }
+                // fix the player vanishing bug
+                //foreach ($this->getPlayers() as $pl) {
+                    //$pl->hidePlayer($player);
+                //}
                 
                 $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§aSpectator"));
 
@@ -664,8 +664,8 @@ class Arena {
             unset($this->armorerKits[$player->getName()]);
         }
         if(isset($this->fighterKits[$player->getName()])){
-            $player->getInventory()->addItem(Item::get(261, 0, 1));
-            $player->getInventory()->addItem(Item::get(262, 0, 32));
+            $player->getInventory()->addItem(Item::get(Item::STONE_SWORD));
+            $player->getInventory()->addItem(Item::get(Item::GOLDEN_APPLE));
             unset($this->fighterKits[$player->getName()]);
         }
     }
@@ -682,7 +682,7 @@ class Arena {
             	if ($is_winner) {
             	    //Broadcast winner
                 	$server->broadcastMessage(str_replace(["{SWNAME}", "{PLAYER}"], [$this->SWname, $player->getName()], $this->plugin->lang["server.broadcast.winner"]), $server->getDefaultLevel()->getPlayers());
-                	$player->addTitle("§6§lVICTORY!", "§7You were last man standing!");
+                	$player->addTitle("§6§lVICTORY!", "§7You were the last man standing!");
 			$volume = mt_rand();
 			$player->getLevel()->broadcastLevelSoundEvent($player, LevelSoundEventPacket::SOUND_LEVELUP, (int) $volume);
 
