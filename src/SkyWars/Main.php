@@ -317,8 +317,6 @@ class Main extends PluginBase {
             //FOOD
             "food" => [
                 [
-                    Item::RAW_PORKCHOP,
-                    Item::RAW_CHICKEN,
                     Item::MELON_SLICE,
                     Item::COOKIE
                 ],
@@ -331,12 +329,10 @@ class Main extends PluginBase {
                     Item::GOLDEN_APPLE
                 ],
                 [
-                    Item::BEETROOT_SOUP,
                     Item::BREAD,
                     Item::BAKED_POTATO
                 ],
                 [
-                    Item::MUSHROOM_STEW,
                     Item::COOKED_CHICKEN
                 ],
                 [
@@ -380,6 +376,9 @@ class Main extends PluginBase {
                 [
                     Item::STICK,
                     Item::STRING
+                ],
+                [
+                    Item::ENDER_PEARL
                 ]
             ]
         ];
